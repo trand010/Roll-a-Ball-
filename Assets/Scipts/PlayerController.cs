@@ -28,6 +28,11 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
         rb.AddForce(movement * speed);
+
+        if (rb.position.y < -12)
+        {
+            FindObjectOfType<GameManager>().EndGame();
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -43,9 +48,10 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
-        if (count >= 32)
+        if (count >= 10)
         {
             winText.text = "You Win!";
+
         }
     }
 }
