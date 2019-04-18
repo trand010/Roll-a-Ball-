@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("GAME OVER");
             Invoke("Restart", restartDelay);
         }
-
     }
 
     void Restart()
